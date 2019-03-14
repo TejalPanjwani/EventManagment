@@ -1,0 +1,67 @@
+
+<div class="container">
+  <div class="jumbotron">
+
+
+
+  <div class="form-group">
+  <div class="control-label col-md-2">
+      <h4><strong>Name:</strong></h4>
+  </div>
+  <div class="col-sm-10">     
+
+      <h4><%= @user.name %></h4>
+  </div>
+</div>
+<br>
+<br>
+
+
+
+
+<div class="form-group">
+<div class="control-label col-md-2">
+    <h4><strong>Email_id:</strong></h4>
+</div>
+<div class="col-sm-10">     
+
+    <h4><%= @user.email %></h4>
+</div>
+</div>
+<br>
+<br>
+
+
+
+
+<div class="form-group">
+<div class="control-label col-md-2">
+    <h4><strong>your type:</strong></h4>
+</div>
+<div class="col-sm-10">     
+
+    <h4><%= @user.typeofhuman %></h4>
+</div>
+</div>
+<br>
+<br>
+
+
+
+
+
+
+<%= link_to 'Edit', edit_serviceprovider_path(@user)  ,  :class=>"btn btn-warning"  %>
+<br>
+<br>
+
+<% if @user.role == "serviceprovider" %>
+
+    <% if Requestforsevice.where("user_id=?", @user.id).last.status == "acceptservice" %>
+        <% if Service.where("user_id=?",@user.id)==[] %>
+            <%= "not add yet service" %>
+        <%else%>
+            <%= link_to "see your service", showservice_serviceproviders_path(Service.where("user_id=?",@user.id).first),  :class=>"btn btn-primary" %>
+        <%end%>
+    <% end %>
+<% end %>

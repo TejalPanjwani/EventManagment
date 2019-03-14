@@ -1,0 +1,115 @@
+<div style="padding-top: 30px;">
+<div class="card col-sm-8 col-sm-offset-2" >
+<div class="card-body">
+<div class="container">
+
+
+  <h2> login </h2>
+  <br>
+
+  <br>
+
+  <%= form_with scope: :users ,url: sessions_create_path, local: true  do |f| %>
+    
+
+  <div class="form-group">
+  <div class="control-label col-md-2">
+    <%= f.label :email %>
+  </div>
+  <div class="col-sm-8">     
+   <%= f.text_field :email, placeholder: "Email",class:"form-control" %>
+  </div>
+</div>
+<br>
+<br>
+<br> 
+<br>
+
+<div class="form-group">
+  <div class="control-label col-sm-2">
+      <%= f.label :password%>
+  </div>
+  <div class="col-sm-8">     
+      <%=  f.text_field :password, placeholder: "Password",class:"form-control" %>
+  </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+
+
+<div class="form-group">
+<div class="control-label col-sm-offset-3 col-sm-6">
+  <%= f.submit "Login", class:"btn btn-success btn-block btn-size" %>
+  </div>    
+</div>
+  
+<% end %>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<h5> Create your account  <%= link_to " Register", register_users_path, class:"btn btn-success btn-xs" %></h5>
+
+
+<br>
+<br>
+
+
+
+</div>
+</div>
+</div>
+</div>
+
+​
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<%#= form_with scope: :users ,url: sessions_create_path, local: true  do |f| %>
+    <%# if flash[:notice] %>
+    <div class="notice"><%#= flash[:notice] %></div>
+  <%# end %>
+    <%#= f.text_field :email, placeholder: "email" %> <br><br>
+    <%#= f.text_field :password, placeholder: "Password" %> <br><br>
+    <%#= f.submit "login" %>
+<%# end %>
+
+
+
+

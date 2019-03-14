@@ -1,0 +1,59 @@
+
+<h1>Edit service </h1>
+ 
+
+<%# service provider %>
+<%# edit services br service provider %>
+
+
+<% if current_user %>
+    <%= form_with(model: @service,url: updateservice_serviceproviders_path , method: :patch, local: true) do |form| %>
+ 
+
+      <p>
+        <%= form.label :title %><br>
+        <%= form.text_field :title, value: @service.printtitle(@service.title_id), disabled: true %>
+      </p>
+ 
+      <p>
+        <%= form.label :Name %><br>
+        <%= form.text_field :nameofsevice %>
+      </p>
+
+
+
+
+      <p>
+      <%= form.label :city %><br>
+      <%= form.text_field :city, value: @service.printcity(@service.city_id) %>
+      </p>
+
+
+      <p>
+        <%= form.label :address %><br>
+        <%= form.text_field :address %>
+      </p>
+
+
+      <p>
+        <%= form.label :contact %><br>
+        <%= form.text_field :contact %>
+      </p>
+
+
+
+ 
+      <p>
+        <%= form.label :description %><br>
+        <%= form.text_area :description %>
+      </p>
+
+ 
+      <p>
+        <%= form.submit "Edit" %>
+      </p>
+ 
+    <% end %>
+
+
+<% end %>

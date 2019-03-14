@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  
+  <p><h2>Services</h2></p>            
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Nameofsevice</th>
+        <th>Address</th>
+        <th>Contact</th>
+        <th>Description</th>
+        <th>Title</th>
+        <th>City</th>
+        <th>User</th>
+      </tr>
+    </thead>
+
+    <%  @s.each do |u|    %>
+    <tbody>
+    <tr>
+      <td>
+        <%= u.id %> 
+      </td>
+  
+      <td>
+        <%= u.nameofsevice %> 
+      </td>
+          
+      <td>
+        <%= u.address %>
+      </td>
+          
+      <td>
+        <%= u.contact %>
+      </td>
+          
+      <td>
+        <%= u.description %>
+      </td>
+          
+          
+      <td>
+        <%= u.printtitle(u.title_id) %>
+      </td>
+          
+          
+      <td>
+        <%= u.printcity(u.city_id) %>
+      </td>
+          
+          
+      <td>
+        <%= u.printuser(u.user_id) %>
+      </td>
+          
+          
+    </tr>
+    </tbody>
+    <%end%>
+  </table>
+</div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

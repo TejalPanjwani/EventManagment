@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  
+  <p><h2>Request</h2></p>            
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <% @requests.each do |u|    %>
+    <tbody>
+      <tr>
+        <td>
+            <h3><%= User.find(u.user_id).name %> </h3>
+        </td>
+  
+        <td>
+            <h3><%= u.description %> </h3>
+        </td>
+
+    <td>
+    <% if u.status== "penddingservice" %>
+
+        <%= link_to "Accept", admin_acceptservice_path(u), :class=>"btn btn-success" %>
+        <%= link_to "Reject", admin_rejectservice_path(u), :class=>"btn btn-danger" %>
+    <% elsif u.status== "acceptservice" %>
+        
+        <button type="button" class="btn">Accepted</button>
+
+    <% elsif u.status== "rejectservice" %>
+        <button type="button" class="btn btn-default">Rejected</button>
+        
+     <% end %>
+
+</td>
+      </tr>
+      
+    </tbody>
+    <%end%>
+  </table>
+</div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

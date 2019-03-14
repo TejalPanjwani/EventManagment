@@ -1,0 +1,8 @@
+
+<% if current_user %>  
+Logged in as <%= current_user.name %>.  
+<%= link_to "Log Out", sessions_destroy_path %>  
+<% else %>  
+<%= link_to "registration",register_users_path %> or  
+<%= link_to "Log In", sessions_login_path %>  
+<% end %>  

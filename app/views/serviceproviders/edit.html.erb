@@ -1,0 +1,41 @@
+
+<%# service provider %>
+<%# edit user %>
+<% if current_user %>
+
+
+
+<div class="container">
+  <div class="jumbotron">
+  <h2>Edit user </h2>
+
+  <%= form_with(model: @user,url: serviceprovider_path, method: :patch, local: true) do |form| %>
+
+ 
+ 
+      <p>
+        <%= form.label :Name %><br>
+        <%= form.text_field :name %>
+      </p>
+ 
+      <p>
+        <%= form.label :email %><br>
+        <%= form.text_area :email %>
+      </p>
+
+      <p>
+        <%= form.label :your_type %><br>
+        <%= form.text_field:typeofhuman, readonly: form.object.typeofhuman?%><br>
+      </p>
+<br>
+<br>
+ 
+      <p>
+        <%= form.submit "Edit" ,  :class=>"btn btn-warning  btn-lg" %>
+      </p>
+ 
+    <% end %>
+</div>
+</div>
+
+<% end %>

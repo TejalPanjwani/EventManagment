@@ -1,37 +1,49 @@
+<div style="padding-top: 35px;">
+<div class="card col-sm-8 col-sm-offset-2" >
+<div class="card-body">
+<div class="container">
+
+<br>
+<br>
 
 <p>
-<strong>Title</strong>
+<strong>Title:</strong>
 <%= @title.title_name %>
 </p>
 
-
 <p>
-<strong>Nameofservice</strong>
+<strong>Nameofservice:</strong>
 <%= @service.nameofsevice %>
 </p>
 
 <p>
-<strong>City</strong>
+<strong>City:</strong>
 <%= @city.city_name %>
 </p>
 
-
 <p>
-<strong>Address</strong>
+<strong>Address:</strong>
 <%= @service.address %>
 </p>
 
-
 <p>
-<strong>Contact</strong>
+<strong>Contact:</strong>
 <%= @service.contact %>
 </p>
 
-
 <p>
-<strong>Description</strong>
+<strong>Description:</strong>
 <%= @service.description %>
 </p>
 
+<p>
+<%= link_to "Back",  showservice_serviceproviders_path,class: "btn btn-info"  %>
+</p>
+<br>
+<br>
+<br>
 
-
+</div>
+</div>
+</div>
+</div>

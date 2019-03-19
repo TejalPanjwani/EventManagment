@@ -1,5 +1,9 @@
+<div style="padding-top: 30px;">
+<div class="card col-sm-8 col-sm-offset-2" >
+<div class="card-body">
+<div class="container">
 
-<h1>Edit service </h1>
+<h2>Edit service </h2>
  
 
 <%# service provider %>
@@ -10,50 +14,111 @@
     <%= form_with(model: @service,url: updateservice_serviceproviders_path , method: :patch, local: true) do |form| %>
  
 
-      <p>
-        <%= form.label :title %><br>
-        <%= form.text_field :title, value: @service.printtitle(@service.title_id), disabled: true %>
-      </p>
+      <div class="form-group">
+  <div class="control-label col-md-1">
+  <%= form.label :title %>
+  </div>
+  <div class="col-sm-8">     
+  <%= form.text_field :title, value: @service.printtitle(@service.title_id), disabled: true,class:"form-control" %>
+  </div>
+</div>
+<br>
+<br>
+<br>
+
+<div class="form-group">
+<div class="control-label col-md-1">
+<%= form.label :Name %></div>
+<div class="col-sm-8">     
+<%= form.text_field :nameofsevice,class:"form-control" %>
+</div>
+</div>
+<br>
+<br>
+<br> 
  
-      <p>
-        <%= form.label :Name %><br>
-        <%= form.text_field :nameofsevice %>
-      </p>
+ 
+
+<div class="form-group">
+<div class="control-label col-md-1">
+<%= form.label :city %></div>
+<div class="col-sm-8">     
+<%= form.text_field :city, value: @service.printcity(@service.city_id),class:"form-control"  %>
+</div>
+</div>
+<br>
+<br>
+<br> 
+   
 
 
+<div class="form-group">
+<div class="control-label col-md-1">
+<%= form.label :address %></div>
+<div class="col-sm-8">     
+<%= form.text_field :address,class:"form-control"  %>
+</div>
+</div>
+<br>
+<br>
+<br> 
+  
 
+   
+<div class="form-group">
+<div class="control-label col-md-1">
+<%= form.label :contact %></div>
+<div class="col-sm-8">     
+<%= form.text_field :contact,class:"form-control"  %>
+</div>
+</div>
+<br>
+<br>
+<br> 
+    
 
-      <p>
-      <%= form.label :city %><br>
-      <%= form.text_field :city, value: @service.printcity(@service.city_id) %>
-      </p>
+   
+   
+<div class="form-group">
+<div class="control-label col-md-1">
+<%= form.label :description %></div>
+<div class="col-sm-8">     
+<%= form.text_area :description,class:"form-control"  %>
+</div>
+</div>
+<br>
+<br>
+<br> 
+<br>
+ 
+   
 
-
-      <p>
-        <%= form.label :address %><br>
-        <%= form.text_field :address %>
-      </p>
-
-
-      <p>
-        <%= form.label :contact %><br>
-        <%= form.text_field :contact %>
-      </p>
-
+    
 
 
  
-      <p>
-        <%= form.label :description %><br>
-        <%= form.text_area :description %>
-      </p>
-
- 
-      <p>
-        <%= form.submit "Edit" %>
-      </p>
+      
+<div class="form-group">
+<div class="control-label col-sm-offset-2 col-sm-6">
+        <%= form.submit "Edit service",class: "btn btn-success btn-block btn-size" %>
+</div>
+</div>
  
     <% end %>
 
 
 <% end %>
+
+<br>
+<br>
+<br>
+
+<br>
+
+<br>
+
+
+</div>
+</div>
+</div>
+</div>

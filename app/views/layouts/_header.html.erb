@@ -48,10 +48,7 @@
           <% elsif current_user.role == "serviceprovider" %>
 
 
-                <% @data = Requestforsevice.find_by("user_id=?",current_user.id) %> 
-                  <%= link_to(viewrespons_serviceproviders_path(@data), class: 'dropdown-item') do %>
-                    <span class="glyphicon glyphicon-log-in"></span> View 
-                <% end %>
+                
 
 
                 <%= link_to(addservices_serviceproviders_path, class: 'dropdown-item') do %>
@@ -59,16 +56,11 @@
                 <% end %>
 
 
+                <%= link_to( setting_serviceproviders_path , class: 'dropdown-item') do %>
+                  <span class="glyphicon glyphicon-cog"></span>  Setting
+                <% end %>
     
-                <%= link_to(profile_serviceproviders_path(current_user.id), class: 'dropdown-item') do %>
-                  <span class="glyphicon glyphicon-user"></span> <%= current_user.name %> 
-                <% end %>
-
-
-                <%= link_to(sessions_destroy_path, class: 'dropdown-item') do %>
-                  <span class="glyphicon glyphicon-off"></span> Logout 
-                <% end %>
-
+                
 
 
 

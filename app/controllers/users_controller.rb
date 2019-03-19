@@ -7,18 +7,14 @@ class UsersController < ApplicationController
     def create
         @user = User.new(user_params)
         if @user.save 
-            
             session[:checkuser_email] = @user.email
             if @user.typeofhuman=="book services"
                 #go on login page
                 UserMailer.send_to_user(@user).deliver_now
                 redirect_to  sessions_login_path
-
             elsif @user.typeofhuman=="add services"
                 #go on description page
-    
                 redirect_to description_users_path
-            
             end
         else 
             render 'register'

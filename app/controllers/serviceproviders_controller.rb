@@ -48,6 +48,9 @@ class ServiceprovidersController < ApplicationController
         end
     end
 
+    def setting
+    end
+
     def update
         @user = User.find(current_user.id)
         if @user.update(user_params)

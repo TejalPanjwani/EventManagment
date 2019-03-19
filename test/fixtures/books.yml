@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  guestdata: MyString
+  daydata: MyString
+  bugetdata: MyString
+  calldata: MyString
+  service: one
+  user: one
+
+two:
+  guestdata: MyString
+  daydata: MyString
+  bugetdata: MyString
+  calldata: MyString
+  service: two
+  user: two

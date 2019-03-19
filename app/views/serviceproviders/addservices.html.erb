@@ -1,24 +1,33 @@
 
 <div class="centertext">
         <h2> Add Service </h2>
+        
 </div>
 
 <% if @service.checkstatuts(current_user.id) == "penddingservice" %>
 
-        <div class="container">
-                <div class="jumbotron">
+        <div style="padding-top: 30px;">
+                <div class="card col-sm-8 col-sm-offset-2" >
+                        <div class="card-body">
+                                <div class="container">
 
-                        <h3> still pendding <h3> 
+                        <h3> Still pendding <h3> 
+                        <br><br><br><br><br><br><br>
 
+                        </div>
+                        </div>
                 </div>
         </div>
 
 
 <% elsif @service.checkstatuts(current_user.id) == "acceptservice" %>
 
-        <div class="container">
-                <div class="jumbotron">
- 
+<div style="padding-top: 15px;">
+<div class="card col-sm-8 col-sm-offset-2" >
+<div class="card-body">
+<div class="container">
+
+<br>
                         <%= form_with model: @service ,url: serviceproviders_path , local: true do |f| %>
                                 <div id="error_explanation">
                                 <% if @service.errors.any? %>
@@ -35,113 +44,124 @@
                                         <div class="control-label col-md-2">
                                                 <%= f.label :title %>
                                         </div>
-                                        <div class="col-sm-10">     
+                                        <div class="col-sm-8">     
                                                 <%= f.select(:title,Title::LIST) %>
                                         </div>
                                 </div>
                                 <br>
                                 <br>
-                                <br> 
+                                 
 
                                 <div class="form-group">
                                         <div class="control-label col-md-2">
                                                 <%= f.label :nameofsevice %>
                                         </div>
-                                        <div class="col-sm-10">     
-                                                <%= f.text_field :nameofsevice, placeholder: "Name of place or give title of service",class:"form-control" %>
+                                        <div class="col-sm-8">     
+                                                <%= f.text_field :nameofsevice, placeholder: "Enter name of place or give title of service",class:"form-control" %>
                                         </div>
                                 </div>
                                 <br>
                                 <br>
-                                <br>
+                        
     
 
                                 <div class="form-group">
                                         <div class="control-label col-md-2">
                                                 <%= f.label :city %>
                                         </div>
-                                        <div class="col-sm-10">     
-                                                <%= f.text_field :city, placeholder: "city" ,class:"form-control"%>
+                                        <div class="col-sm-8">     
+                                                <%= f.text_field :city, placeholder: "Enter city" ,class:"form-control"%>
                                         </div>
                                 </div>
                                 <br>
                                 <br>
-                                <br>
+                                
 
                                 <div class="form-group">
                                         <div class="control-label col-md-2">
                                                 <%= f.label :address %>
                                         </div>
-                                        <div class="col-sm-10">     
-                                                <%= f.text_field :address, placeholder: "address" ,class:"form-control"%>
+                                        <div class="col-sm-8">     
+                                                <%= f.text_field :address, placeholder: "Enter address" ,class:"form-control"%>
                                         </div>
                                 </div>
                                 <br>
                                 <br>
-                                <br>
+                                
 
                                 <div class="form-group">
                                         <div class="control-label col-md-2">
                                                 <%= f.label :contact %>
                                         </div>
-                                        <div class="col-sm-10">     
-                                                <%= f.text_field :contact, placeholder: "contact",class:"form-control" %>
+                                        <div class="col-sm-8">     
+                                                <%= f.text_field :contact, placeholder: "Enter contact",class:"form-control" %>
                                         </div>
                                 </div>
                                 <br>
                                 <br>
-                                <br>
+                                
                                 <div class="form-group">
                                         <div class="control-label col-md-2">
                                                 <%= f.label :image %>
                                         </div>
-                                        <div class="col-sm-10">     
+                                        <div class="col-sm-8">     
                                                 <%= f.file_field :service_image %>
                                         </div>
                                 </div>
                                 <br>
                                 <br>
-                                <br>
+                                
 
                                 <div class="form-group">
                                         <div class="control-label col-md-2">
                                                 <%= f.label :description %>
                                         </div>
-                                        <div class="col-sm-10">     
-                                                <%= f.text_area :description, placeholder: "description",class:"form-control" %> <br><br>
+                                        <div class="col-sm-8">     
+                                                <%= f.text_area :description, placeholder: "Enter description about service",class:"form-control" %> <br><br>
                                         </div>
                                 </div>
                                 <br>
                                 <br>
-                                <br>
+                                
 
 
                                 <div class="form-group">
-                                        <div class="control-label col-sm-offset-5 col-sm-2">
-                                                <%= f.submit "Submit", class:"btn btn-primary btn-block btn-size" %>
+                                        <div class="control-label col-sm-offset-3 col-sm-6">
+                                                <%= f.submit "Submit", class: "btn btn-success btn-block btn-size" %>
                                         </div>    
                                 </div>
+                                <br><br>
+                                <br><br>
+                                <br><br>
+
+                                <br><br>
+
+
 
                         <% end %>
+        
+
                 </div>
+        </div>
+        </div>
         </div>
 
 
 <% elsif @service.checkstatuts(current_user.id) == "rejectservice" %>
+<div style="padding-top: 30px;">
+<div class="card col-sm-8 col-sm-offset-2" >
+<div class="card-body">
 <div class="container">
-        <div class="jumbotron">
 
-                <h3> sorry! reject </h3>
 
+                <h3> Sorry! reject </h3>
+                <br><br><br><br><br><br><br>
+
+        </div>
+        </div>
         </div>
 </div>
 <% end %>
-
-
-
-
-
-
 
 
 

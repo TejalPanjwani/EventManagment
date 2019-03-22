@@ -1,0 +1,44 @@
+<div style="width: 700px;margin-top:50px;margin-left:190px;">
+
+<div class="panel panel-default">
+<div class="panel-body">
+
+
+<h3> your booking </h3>
+<hr>
+
+<% if @books != [] %>
+    <% @books.each do |book| %>
+
+        <b>Service Name:</b><%= link_to book.servicename(book.service_id), serviceprovider_path(book.service_id) %>
+        <br>
+        <b>How many guests are you expecting?:</b><%= book.guestdata %>
+        <br>
+        <b>For how long do you require the hall on rent?:</b><%= book.daydata %>
+        <br>
+        <b>What is your preferred budget?:</b><%= book.bugetdata %>    
+        <br>
+        <b>What time would like to recieve calls?:</b><%= book.calldata %>
+        <br>
+        <br>
+
+        <%= link_to 'Cancle bokking', booknotifyservice_path(book),method: :delete,data: { confirm: 'Are you sure?' }, :class=>"btn btn-danger" %>
+
+        
+        <br>
+        <hr>
+   
+    <% end %>
+
+<% else %>
+
+    <%= " not book anything" %>
+<% end %>
+
+ 
+</div>
+
+</div>
+
+</div> 
+

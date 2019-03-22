@@ -3,13 +3,12 @@
 <div class="panel panel-default">
 <div class="panel-body">
 
-
     <table>
       <tr>
         <td><%= @service.nameofsevice %></td>
       </tr>
       <tr>
-        <td><%= "in    #{@service.printcity(@service.city_id)}  "  %></td>    
+        <td><%= "in  #{@service.printcity(@service.city_id)}  "  %></td>    
       </tr>
       <tr>
       <td><b>Address:   </b><%= @service.address %></td>
@@ -29,8 +28,79 @@
       </tr>
 
     </table>
-
     <%= image_tag(@service.viewin) if @service.service_image.attached? %>
+    <br><br>
+    <button onclick="document.getElementById('modal-wrapper').style.display='block'" class="btn btn-default" >
+    Book </button>
   </div>
 </div>
 </div>
+
+<div  id="modal-wrapper", class="modal">
+
+<!-- Modal content-->
+<div class="modal-content">
+  <div class="modal-header" style="padding:35px 50px;">
+    <span onclick="document.getElementById('modal-wrapper').style.display='none'" class="close" title="close popup" >&times;</span>
+    <h4><span class="glyphicon glyphicon-comment"></span> Book service</h4>
+  </div>
+  <div class="modal-body" style="padding:40px 50px;">
+  
+  <p>For book service enter details</p>
+  <%= form_for @book, url: booknotifyservices_path ,method: :post, :html=> {:id => 'regForm'} do |f|%>
+  <%= f.hidden_field :serviceid , value: params[:id] %>
+  
+  <div class="tab"><b>How many guests are you expecting?:</b>
+    <input type="radio" id="result" name="guestdata" oninput="this.className = ''" onclick="myFunctionGuest(this.value)" value="Less than 50">Less than 50
+    <input type="radio" id="result" name="guestdata" oninput="this.className = ''" onclick="myFunctionGuest(this.value)" value="51-100">51-100
+    <input type="radio" id="result" name="guestdata" oninput="this.className = ''" onclick="myFunctionGuest(this.value)" value="101-250">101-250
+    <input type="radio" id="result" name="guestdata" oninput="this.className = ''" onclick="myFunctionGuest(this.value)" value="251-500">251-500
+    <input type="radio" id="result" name="guestdata" oninput="this.className = ''" onclick="myFunctionGuest(this.value)" value="More than 500">More than 500
+  </div>
+  
+  <div class="tab"><b>For how long do you require the hall on rent?:</b>
+    <input type="radio" id="result" name="daysdata" oninput="this.className = ''" onclick="myFunctionDays(this.value)" value="less than 1 day">less than 1 day<br>
+    <input type="radio" id="result" name="daysdata" oninput="this.className = ''" onclick="myFunctionDays(this.value)" value="1-2 days">1-2 days<br>
+    <input type="radio" id="result" name="daysdata" oninput="this.className = ''"  onclick="myFunctionDays(this.value)" value="more than 2 days">more than 2 days<br>
+  </div>
+  
+  <div class="tab"><b>What is your preferred budget?:</b>
+    <input type="radio" id="result" name="bugetdata" oninput="this.className = ''" onclick="myFunctionBuget(this.value)" value="less than Rs.200">less than Rs.200<br>
+    <input type="radio" id="result" name="bugetdata" oninput="this.className = ''" onclick="myFunctionBuget(this.value)" value="Rs.201-Rs.290">Rs.201-Rs.290<br>
+    <input type="radio" id="result" name="bugetdata" oninput="this.className = ''" onclick="myFunctionBuget(this.value)" value="Rs.300-Rs.500">Rs.300-Rs.500<br>
+    <input type="radio" id="result" name="bugetdata" oninput="this.className = ''" onclick="myFunctionBuget(this.value)" value="Rs.501-Rs.1000">Rs.501-Rs.1000<br>
+    <input type="radio" id="result" name="bugetdata" oninput="this.className = ''" onclick="myFunctionBuget(this.value)" value="more than Rs.1000">more than Rs.1000<br><br>
+  </div>
+  
+  <div class="tab"><b>What time would like to recieve calls?:</b>
+    <input type="radio" id="result" name="calldata" oninput="this.className = ''" onclick="myFunctionCall(this.value)" value="Any time">Any time<br>
+    <input type="radio" id="result" name="calldata" oninput="this.className = ''" onclick="myFunctionCall(this.value)" value="9AM-12PM">9AM-12PM<br>
+    <input type="radio" id="result" name="calldata" oninput="this.className = ''" onclick="myFunctionCall(this.value)" value="12PM-3PM">12PM-3PM<br>
+    <input type="radio" id="result" name="calldata" oninput="this.className = ''" onclick="myFunctionCall(this.value)" value="3PM-6PM">3PM-6PM<br>
+    <input type="radio" id="result" name="calldata" oninput="this.className = ''" onclick="myFunctionCall(this.value)" value="6PM-9PM">6PM-9PM <br><br>
+  </div>
+  
+  <div style="overflow:auto;">
+      <div style="float:right;">
+        <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+        <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+      </div>
+  </div>
+  <!-- Circles which indicates the steps of the form: -->
+  <div style="text-align:center;margin-top:40px;">
+    <span class="step"></span>
+    <span class="step"></span>
+    <span class="step"></span>
+    <span class="step"></span>
+  </div>
+  
+  <% end %>
+  </div>
+ 
+</div>
+
+</div>
+
+</div> 
+
+

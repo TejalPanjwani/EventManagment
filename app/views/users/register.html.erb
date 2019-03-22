@@ -3,123 +3,82 @@
 <div class="card-body">
 <div class="container">
 
-
-
   <h2> Create your account </h2>
   <br>
   
   <%= form_with model: @user ,url: users_path  , local: true do |f| %>
     <% if @user.errors.any? %>
-    
-      <%# @user.errors.full_messages.each do |msg| %>
       <% flash[:danger] = @user.errors.full_messages %>
-        
-      <%#end%>
     <% end %>  
 
-  <div class="form-group">
-  <div class="control-label col-md-2">
-    <%= f.label :name %>
-  </div>
-  <div class="col-sm-8">     
-   <%= f.text_field :name,placeholder:"Enter name",class:"form-control" %>
-  </div>
-</div>
-<br>
-<br>
-<br> 
+    <div class="form-group">
+      <div class="control-label col-md-2">
+        <%= f.label :name %>
+      </div>
+      <div class="col-sm-8">     
+        <%= f.text_field :name,placeholder:"Enter name",class:"form-control" %>
+      </div>
+    </div>
+    <br><br><br> 
 
-<div class="form-group">
-  <div class="control-label col-sm-2">
-      <%= f.label :email_id%>
-  </div>
-  <div class="col-sm-8">     
-      <%= f.text_field :email, placeholder: "Enter email id",class:"form-control" %>
-  </div>
-</div>
-<br>
-<br>
+    <div class="form-group">
+      <div class="control-label col-sm-2">
+        <%= f.label :email_id%>
+      </div>
+      <div class="col-sm-8">     
+        <%= f.text_field :email, placeholder: "Enter email id",class:"form-control" %>
+      </div>
+    </div>
+    <br><br>
 
+    <div class="form-group">
+      <div class="control-label col-sm-2">
+        <%= f.label :Choose_type %>
+      </div>
+      <div class="col-sm-3">     
+        <div class="radio">
+          <label><%= f.radio_button :typeofhuman, "book services"%> book services </label>
+        </div> 
+        <div class="radio">
+          <label><%= f.radio_button :typeofhuman, "add services"%> add services </label>
+        </div> 
+      </div>
+    </div>
+    <br><br><br><br>
 
+    <div class="form-group">
+      <div class="control-label col-sm-2">
+        <%= f.label :password%>
+      </div>
+      <div class="col-sm-8">     
+        <%= f.password_field :password, placeholder: "Enter password",class:"form-control" %>
+      </div>
+    </div>
+    <br><br>
 
-<div class="form-group">
-  <div class="control-label col-sm-2">
-      <%= f.label :Choose_type%>
-  </div>
-  <div class="col-sm-8">     
-  <%= f.radio_button :typeofhuman, 'book services' %> Book services <br><br>
-  <%= f.radio_button :typeofhuman, 'add services' %> Add services
-  </div>
-</div>
-<br>
-<br>
-<br>
-<br>
-<br>
+    <div class="form-group">
+      <div class="control-label col-sm-2">
+        <%= f.label :password_confirmation%>
+      </div>
+      <div class="col-sm-8">     
+        <%= f.password_field :password_confirmation, placeholder: "Enter password again",class:"form-control" %>
+      </div>
+    </div>
+    <br><br><br>
 
-
-<div class="form-group">
-  <div class="control-label col-sm-2">
-      <%= f.label :password%>
-  </div>
-  <div class="col-sm-8">     
-      <%= f.password_field :password, placeholder: "Enter password",class:"form-control" %>
-  </div>
-</div>
-<br>
-<br>
-
-
-
-
-<div class="form-group">
-  <div class="control-label col-sm-2">
-      <%= f.label :password_confirmation%>
-  </div>
-  <div class="col-sm-8">     
-      <%= f.password_field :password_confirmation, placeholder: "Enter password again",class:"form-control" %>
-  </div>
-</div>
-<br>
-<br>
-<br>
-
-
-<div class="form-group">
-  <div class="control-label col-sm-offset-3 col-sm-6">
-  <%= f.submit "Singup", class: "btn btn-success btn-block btn-size" %>
-  </div>    
-</div>
+    <div class="form-group">
+      <div class="control-label col-sm-offset-3 col-sm-6">
+        <%= f.submit "Singup", class: "btn btn-success btn-block btn-size" %>
+      </div>    
+    </div>
   
 <% end %>
-<br>
-<br>
-<br>
+<br><br><br>
 
 <h5> if u have account <%= link_to " Login", sessions_login_path, class:"btn btn-success btn-xs" %></h5>
 <br>
-</div>
-
-
-
-
 
 </div>
 </div>
 </div>
 </div>
-
-<h1><%# Create your account%></h1>
-
-<%#= form_with scope: :users ,url: users_path , local: true do |f| %>
-    
-        <%#= f.text_field :name, placeholder: "Name" %> <br><br>
-
-        <%#= f.text_field :email, placeholder: "email" %> <br><br>
-        <%#= f.radio_button :typeofhuman, 'book services' %> 
-        <%#= f.radio_button :typeofhuman, 'add services' %> 
-        <%#= f.text_field :password, placeholder: "Password" %> <br><br>
-        <%#= f.submit "singup" %>
-<%# end %>
-
-

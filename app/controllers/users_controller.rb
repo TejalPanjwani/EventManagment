@@ -224,6 +224,15 @@ class UsersController < ApplicationController
 
     def viewmore
         @service = Service.find(params[:id])
+        @book = Book.new
+    end
+
+    def addBooking
+        #add booking details in db 
+        @book =Book.new("guestdata"=>params["guestdata"],"daydata"=>params["daysdata"],"bugetdata"=>params["bugetdata"],"calldata"=>params["calldata"],"service_id"=>params["serviceId"],"user_id"=>current_user.id)
+        binding.pry
+        @book.save
+        redirect_to  new_booknotifyservice_path 
     end
 
 

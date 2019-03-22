@@ -56,4 +56,10 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :booknotifyservices do 
+    collection do 
+      get 'book' => 'booknotifyservices#book'
+    end 
+  end
+
 end

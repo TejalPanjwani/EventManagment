@@ -21,37 +21,38 @@ class UsersController < ApplicationController
         end
     end
 
+    def destroy
+        @user = User.find_by(id: params[:id])
+        binding.pry
+        @user.destroy
+    end 
+
+    def deleteAccount
+    end 
+
     def description
         @request  = Requestforsevice.new
-       
     end
 
     def viewservices
-        #types all 
-        
+        #types all  
     end
 
     def addDescription
-        #post method add into db
-        
+        #post method add into db 
         @request  = Requestforsevice.new(requestforsevice_params.merge(:check_email=> check_email.email))
-       
         if @request.save
             UserMailer.send_to_serviceprovider(check_email).deliver_now
             session[:checkuser_email] = nil
             redirect_to sessions_login_path
-
         else
             render 'description'
         end
     end
 
-
     def banquetpage
-
         #@search = Service.new
         @t = Title.where("title_name=?","Banquet Hall").last
-        
         if @t 
             if params[:users]
                 @s = (params[:users][:search]).to_s if params[:users][:search].present?
@@ -71,26 +72,11 @@ class UsersController < ApplicationController
         else 
             @services=nil
         end
-       
     end
-
-
-
-    # def banquetpage
-    #     @t = Title.where("title_name=?","Banquet Hall").last
-    #     if @t 
-    #         @services = Service.where("title_id=?",@t.id)
-    #     else 
-    #         @services=nil
-    #     end
-       
-    # end
-
 
     def ceteringpage
         @t = Title.where("title_name=?","Cetering").last
 
-
         if @t 
             if params[:users]
                 @s = (params[:users][:search]).to_s if params[:users][:search].present?
@@ -110,14 +96,6 @@ class UsersController < ApplicationController
         else 
             @services=nil
         end
-       
-
-        # if @t 
-        #     @services = Service.where("title_id=?",@t.id)
-        # else 
-        #     @services=nil
-        # end
-       
     end
 
     def decorationpage
@@ -142,21 +120,11 @@ class UsersController < ApplicationController
         else 
             @services=nil
         end
-       
-
-
-        # if @t 
-        #     @services = Service.where("title_id=?",@t.id)
-        # else 
-        #     @services=nil
-        # end
-       
     end
 
     def musicpage
         @t = Title.where("title_name=?","Music").last
 
-
         if @t 
             if params[:users]
                 @s = (params[:users][:search]).to_s if params[:users][:search].present?
@@ -175,22 +143,12 @@ class UsersController < ApplicationController
             end
         else 
             @services=nil
-        end
-       
-
-
-        # if @t 
-        #     @services = Service.where("title_id=?",@t.id)
-        # else 
-        #     @services=nil
-        # end
-       
+        end       
     end
 
     def partyplotpage
         @t = Title.where("title_name=?","Party Plot").last
 
-
         if @t 
             if params[:users]
                 @s = (params[:users][:search]).to_s if params[:users][:search].present?
@@ -210,16 +168,6 @@ class UsersController < ApplicationController
         else 
             @services=nil
         end
-       
-        
-
-
-        # if @t 
-        #     @services = Service.where("title_id=?",@t.id)
-        # else 
-        #     @services=nil
-        # end
-       
     end
 
     def viewmore
@@ -230,10 +178,20 @@ class UsersController < ApplicationController
     def addBooking
         #add booking details in db 
         @book =Book.new("guestdata"=>params["guestdata"],"daydata"=>params["daysdata"],"bugetdata"=>params["bugetdata"],"calldata"=>params["calldata"],"service_id"=>params["serviceId"],"user_id"=>current_user.id)
-        binding.pry
-        @book.save
-        redirect_to  new_booknotifyservice_path 
+        if @book.save
+            
+            @user = Service.find(@book.service_id).user_id
+            binding.pry
+            @notice = Notice.new(user_id: @user , book_id: @book.id)
+            if @notice.save
+                redirect_to  new_booknotifyservice_path
+            end
+        end 
     end
+
+    def specificeServive
+    end 
+
 
 
     private
@@ -241,7 +199,6 @@ class UsersController < ApplicationController
         params.require(:user).permit(:name,:typeofhuman,:email,:password,:password_confirmation)
     end
     def requestforsevice_params
-     
         params.require(:requestforsevice).permit(:description)
     end 
 end

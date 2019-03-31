@@ -1,0 +1,33 @@
+<div style="width: 700px;margin-top:50px;margin-left:350px;">
+    <div class="panel panel-default">
+        <div class="panel-body">
+
+            <h2> Show notification </h2>
+            <h2> who book services  </h2>
+            <% if @notices %>
+                <%  @notices.each do |notice|   %>
+
+                    <% if current_user.id ==  notice.user.id  %>
+                        <%  if notice.unread?   %>
+                            <div  style="background-color:lightblue">
+                                <%= " #{notice.user.name} is book on your #{notice.service_name(notice.book.service_id)} service " %>
+                                <%= link_to "show", showNotice_serviceproviders_path(notice.book_id) %>
+                                <br>
+                            </div>   
+
+                        <% elsif notice.read? %>
+
+                            <%= " #{notice.user.name} is book on your #{notice.service_name(notice.book.service_id)} service " %>
+                            <%= link_to "show", showNotice_serviceproviders_path(notice.book_id) %>
+                            <br>
+                        <% end %>
+                    <% end %>
+
+                <% end %>
+            <% else %>
+                <h3> not notification yet </h3>
+            <% end %>
+
+        </div>
+    </div>
+</div>

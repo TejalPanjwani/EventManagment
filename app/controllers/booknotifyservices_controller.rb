@@ -6,10 +6,14 @@ class BooknotifyservicesController < ApplicationController
     end
 
     def create
-        @book =Book.new("guestdata"=>params["guestdata"],"daydata"=>params["daysdata"],"bugetdata"=>params["bugetdata"],"calldata"=>params["calldata"],"service_id"=>params[:book][:serviceid],"user_id"=>current_user.id)
-        binding.pry
-        @book.save
-        redirect_to  new_booknotifyservice_path 
+        @book =Book.new("guestdata"=>params["guestdata"],"daydata"=>params["daysdata"],"bugetdata"=>params["bugetdata"],"calldata"=>params["calldata"],"service_id"=>params[:book][:serviceid],"user_id"=>current_user.id,"contact"=>params["contact"])
+        if @book.save
+            @user = Service.find(@book.service_id).user_id
+            @notice = Notice.new(user_id: @user , book_id: @book.id)
+            if @notice.save
+                redirect_to  new_booknotifyservice_path
+            end
+        end 
     end
 
     def destroy
@@ -17,8 +21,8 @@ class BooknotifyservicesController < ApplicationController
         @book.destroy
         flash[:success]="your booking successfully cancle"
         redirect_to book_booknotifyservices_path
-
     end
+
     private
     def books_params
         params.require().permit("guestdata","daydata","bugetdata","calldata","service_id")

@@ -26,7 +26,6 @@ class ServiceprovidersController < ApplicationController
         else
             render 'addservices'
         end
-
     end
 
     def profile
@@ -70,6 +69,8 @@ class ServiceprovidersController < ApplicationController
         @service = Service.find_by("id=?",params[:id])
         @city = City.find(@service.city_id)
         @title = Title.find(@service.title_id)
+        @books = Book.where("service_id=?", @service.id)
+        binding.pry
     end
 
     def editservice
@@ -78,12 +79,9 @@ class ServiceprovidersController < ApplicationController
             #binding.pry
             # @service =  Service.where("user_id=?",current_user.id).first
             @service =  Service.find_by(id: params[:id])
-
-
         else
             redirect_to  sessions_login_path
         end
-
     end
 
     def updateservice
@@ -94,11 +92,26 @@ class ServiceprovidersController < ApplicationController
         else
             render 'editservice'
         end
-
     end
 
+    def notification
+        #show notificstion to serviceprovider
+        @notices = Notice.where("user_id=?",current_user.id)
+    end
 
-
+    def showNotice
+        #show notice of booking on perticular service
+        @book = Book.find(params[:id])
+        @service = @book.service
+        @user = @book.user
+        @title = Title.find(@service.title_id)
+        @city = City.find(@service.city_id)
+        @notice = @book.notice
+        if @notice.statustype == "unread"
+            @notice.statustype = "read"
+            @notice.save   
+        end  
+    end 
 
     private
     def serviceprovider_params

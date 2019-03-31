@@ -36,6 +36,8 @@ Rails.application.routes.draw do
       get 'partyplotpage'=> 'users#partyplotpage'
       get 'viewmore/:id' => 'users#viewmore', as: 'viewmore'
       get 'searchpage' => 'users#searchpage'
+      get 'specificeServive' => 'users#specificeServive'
+      get 'deleteAccount/:id' => 'users#deleteAccount', as: 'deleteAccount'
     end
   end
 
@@ -53,6 +55,8 @@ Rails.application.routes.draw do
       patch 'updateservice/:id' => 'serviceproviders#updateservice', as: 'updateservice'
       get  ':user_id/showuserservice/:id' => 'serviceproviders#showuserservice', as: 'showuserservice'
       get 'setting'=>'serviceproviders#setting'
+      get 'notification' => 'serviceproviders#notification'
+      get 'showNotice/:id' => 'serviceproviders#showNotice', as: 'showNotice'
     end
   end
 

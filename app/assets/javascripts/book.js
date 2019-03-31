@@ -102,15 +102,24 @@ function validateForm()
   for (i = 0; i < y.length; i++) 
   {
     // If a field is empty...
-    if (y[i].checked) 
-    {
+    if (y[i].value != "") {
+      console.log("text box");
       valid = true;
       break;
-    }
-    else 
-    {
+      
+      //console.log("text box");
       // add an "invalid" class to the field:
-      y.className += " invalid";
+      //y[i].className += " invalid";
+      // and set the current valid status to false
+      //valid = false;
+      
+    }
+    else
+    {
+      console.log("close validation")
+      console.log("text box");
+      // add an "invalid" class to the field:
+      y[i].className += " invalid";
       // and set the current valid status to false
       valid = false;
     }

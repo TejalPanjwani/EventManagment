@@ -1,4 +1,3 @@
-
 <div class="centertext">
     <h2>service</h2>
 </div>
@@ -9,8 +8,6 @@
         <div class="smalljumbo">
             <div class="container">
                 <div class="jumbotron">
-
-
                     <div class="form-group">
                         <div class="control-label col-md-2">
                             <h4><strong>Nameofsevice:</strong></h4>
@@ -19,9 +16,7 @@
                         <h4><%=  s.nameofsevice %></h4>
                     </div>
                 </div>
-                <br>
-                <br>
-
+                <br><br>
 
                 <div class="form-group">
                     <div class="control-label col-md-2">
@@ -31,23 +26,17 @@
                         <h4><%=  Title.where("id=?",s.title_id).last.title_name %></h4>
                     </div>
                 </div>
-                <br>    
-                <br>
-
-
+                <br><br>
 
                 <div class="form-group">
                     <div class="control-label col-sm-1">
                         <%= link_to " Edit", editservice_serviceproviders_path(current_user.id,s),  :class=>"btn btn-warning" %>
-
                     </div>
                     <div class="col-sm-1">     
                         <%= link_to "Show", showuserservice_serviceproviders_path(current_user.id,s),  :class=>"btn btn-success" %>
-
                     </div>
                     <div class="col-sm-1">     
                         <%= link_to "Delete", serviceprovider_path(s), method: :delete,data: { confirm: 'Are you sure?' }, :class=>"btn btn-danger" %>
-
                     </div>
                 </div>
             </div>
@@ -62,10 +51,3 @@
         </div>
     </div>
 <%end%>
-
-
-
-
-
-
-

@@ -1,38 +1,46 @@
 <div style="width:550px;margin-top:50px;margin-left:200px;">
-<div class="panel panel-default">
-<div class="panel-body">
+  <div class="panel panel-default">
+    <div class="panel-body">
 
-<%= link_to(profile_serviceproviders_path(current_user.id), class: 'dropdown-item') do %>
-    <span class="glyphicon glyphicon-user"></span> Profile
-<% end %>
-<br>
-<hr>
-
-<% @data = Requestforsevice.find_by("user_id=?",current_user.id) %> 
-<%= link_to(viewrespons_serviceproviders_path(@data), class: 'dropdown-item') do %>
-  <span class="glyphicon glyphicon-log-in"></span> View respond
-<% end %>
-<br>
-<hr>
-
-<% if current_user.role == "serviceprovider" %>
-  <% if Requestforsevice.where("user_id=?", current_user.id).last.status == "acceptservice" %>
-    <% if Service.where("user_id=?",current_user.id)==[] %>
-      <%= "Not add yet service" %>
-    <%else%>
-      <%= link_to(showservice_serviceproviders_path(Service.where("user_id=?",current_user.id).first), class: 'dropdown-item') do %>
-        <span class="glyphicon glyphicon-book"></span> See your services
+      <%= link_to(profile_serviceproviders_path(current_user.id), class: 'dropdown-item') do %>
+        <span class="glyphicon glyphicon-user"></span> Profile
       <% end %>
-    <%end%>
-  <% end %>
-<% end %>
-<br>
-<hr>
+      <br>
+      <hr>
 
-<%= link_to(sessions_destroy_path, class: 'dropdown-item') do %>
-  <span class="glyphicon glyphicon-off"></span> Logout 
-<% end %>
+      <% @data = Requestforsevice.find_by("user_id=?",current_user.id) %> 
+      <%= link_to(viewrespons_serviceproviders_path(@data), class: 'dropdown-item') do %>
+        <span class="glyphicon glyphicon-log-in"></span> View respond
+      <% end %>
+      <br>
+      <hr>
 
-</div>
-</div>
+      <% if current_user.role == "serviceprovider" %>
+        <% if Requestforsevice.where("user_id=?", current_user.id).last.status == "acceptservice" %>
+          <% if Service.where("user_id=?",current_user.id)==[] %>
+            <%= "Not add yet service" %>
+          <%else%>
+            <%= link_to(showservice_serviceproviders_path(Service.where("user_id=?",current_user.id).first), class: 'dropdown-item') do %>
+              <span class="glyphicon glyphicon-book"></span> See your services
+            <% end %>
+          <%end%>
+        <% end %>
+      <% end %>
+      <br>
+      <hr>
+
+      
+
+      <%= link_to( deleteAccount_users_path(current_user.id) , class: 'dropdown-item') do %>
+        <span class="glyphicon glyphicon-off"></span> Delete my accout
+      <% end %>
+      <br>
+      <hr>
+
+      <%= link_to(sessions_destroy_path, class: 'dropdown-item') do %>
+        <span class="glyphicon glyphicon-off"></span> Logout 
+      <% end %>
+
+    </div>
+  </div>
 </div>

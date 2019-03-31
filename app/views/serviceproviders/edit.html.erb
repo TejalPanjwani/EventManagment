@@ -1,83 +1,57 @@
-
 <%# service provider %>
 <%# edit user %>
 
 <div style="padding-top: 30px;">
-<div class="card col-sm-8 col-sm-offset-2" >
-<div class="card-body">
-<div class="container">
+  <div class="card col-sm-8 col-sm-offset-2" >
+    <div class="card-body">
+      <div class="container">
 
+        <% if current_user %>
 
-<% if current_user %>
+          <h2>Edit user </h2>
+          <br>
+          <%= form_with(model: @user,url: serviceprovider_path, method: :patch, local: true) do |form| %>
 
-  <h2>Edit user </h2>
-  <br>
-  <%= form_with(model: @user,url: serviceprovider_path, method: :patch, local: true) do |form| %>
+            <div class="form-group">
+              <div class="control-label col-md-2">
+                <%= form.label :Name %>
+              </div>
+              <div class="col-sm-8">     
+                <%= form.text_field :name ,class:"form-control"%>  
+              </div>
+            </div>
+            <br><br><br> <br>
+ 
+            <div class="form-group">
+              <div class="control-label col-md-2">
+                <%= form.label :email %>
+              </div>
+              <div class="col-sm-8">     
+                <%= form.text_field :email, class:"form-control" %>  
+              </div>
+            </div>
+            <br><br><br> <br>
 
+            <div class="form-group">
+              <div class="control-label col-md-2">
+                <%= form.label :your_type %>
+              </div>
+              <div class="col-sm-8">     
+                <%= form.text_field:typeofhuman, readonly: form.object.typeofhuman?, class:"form-control" %>
+              </div>
+            </div>
+            <br><br><br><br>
 
+            <div class="form-group">
+              <div class="control-label col-sm-offset-3 col-sm-6">
+                <%= form.submit "Edit" ,  :class=>"btn btn-success btn-block btn-size" %>
+              </div>    
+            </div>
+            <br><br><br><br>
+          <% end %>
 
-  <div class="form-group">
-  <div class="control-label col-md-2">
-  <%= form.label :Name %>
+        <% end %>
+      </div>
+    </div>
   </div>
-  <div class="col-sm-8">     
-  <%= form.text_field :name ,class:"form-control"%>  
-  </div>
-</div>
-<br>
-<br>
-<br> 
-<br>
- 
-
-
-<div class="form-group">
-<div class="control-label col-md-2">
-<%= form.label :email %>
-</div>
-<div class="col-sm-8">     
-<%= form.text_field :email, class:"form-control" %>  
-</div>
-</div>
-<br>
-<br>
-<br> 
-<br>
-
-
-
-
-<div class="form-group">
-<div class="control-label col-md-2">
-<%= form.label :your_type %>
-</div>
-<div class="col-sm-8">     
-<%= form.text_field:typeofhuman, readonly: form.object.typeofhuman?, class:"form-control" %>
-</div>
-</div>
-<br>
-<br>
-<br> 
-<br>
-
- 
-
-<div class="form-group">
-  <div class="control-label col-sm-offset-3 col-sm-6">
-  <%= form.submit "Edit" ,  :class=>"btn btn-success btn-block btn-size" %>
-  </div>    
-</div>
- <br>
- <br>
- <br>
- <br>
- 
-    <% end %>
-
-<% end %>
-
-
-</div>
-</div>
-</div>
 </div>

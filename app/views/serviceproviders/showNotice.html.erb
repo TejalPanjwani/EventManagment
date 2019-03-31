@@ -42,27 +42,21 @@
                 <hr>
                 <h3>Details of booking </h3>
                 <br>
-                <% if @books %>
-                    <% @books.each do |book|  %>
-                        <b> UserName : </b><%= book.user.name %>
-                        <br>
-                        <b>How many guests are you expecting?: </b><%= book.guestdata %>
-                        <br>
-                        <b>For how long do you require the hall on rent?:</b><%= book.daydata %>
-                        <br>
-                        <b>What is your preferred budget?:</b><%= book.bugetdata %>    
-                        <br>
-                        <b>What time would like to recieve calls?:</b><%= book.calldata %>
-                        <br>
-                        <br>
-                        <hr>
-                    <% end %>
-                <% else %>
-
-                    <h5> not booked yet </h5>
-                    <br>
-
-                <% end %>
+                
+                <b> UserName : </b><%= @book.user.name %>
+                <br>
+                <b> Contact of user : </b><%= @book.contact %>
+                <br>
+                <b>How many guests are you expecting?: </b><%= @book.guestdata %>
+                <br>
+                <b>For how long do you require the hall on rent?:</b><%= @book.daydata %>
+                <br>
+                <b>What is your preferred budget?:</b><%= @book.bugetdata %>    
+                <br>
+                <b>What time would like to recieve calls?:</b><%= @book.calldata %>
+                <br>
+                <br>
+                <hr>
             </div>
         </div>
     </div>

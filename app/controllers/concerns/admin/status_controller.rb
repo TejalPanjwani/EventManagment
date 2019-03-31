@@ -1,11 +1,9 @@
 class Admin::StatusController < Admin::BaseController
 
-
     def index
         #two link login and register
         #@users = User.all
     end
-
 
     def mainpage
         #show all links of all tables
@@ -19,7 +17,6 @@ class Admin::StatusController < Admin::BaseController
     def serviceproviderpage
         #show all service provider
         @serviceproviders = User.where("role=?", 1)
-        
     end
 
     def userspage
@@ -68,12 +65,10 @@ class Admin::StatusController < Admin::BaseController
     end
 
     def acceptservice
-
         #update statutsofservice  rejectservice to acceptservice
         @r = Requestforsevice.find(params[:id])
         @r.status = "acceptservice"
         @r.save
-
         redirect_to admin_requestpage_path
     end
 
@@ -83,7 +78,6 @@ class Admin::StatusController < Admin::BaseController
         @r.status = "rejectservice"
         @r.save
         redirect_to admin_requestpage_path
-
     end
 
     private

@@ -22,12 +22,16 @@ class UsersController < ApplicationController
     end
 
     def destroy
+        #delete that user who want to delete their account
         @user = User.find_by(id: params[:id])
-        binding.pry
         @user.destroy
+        flash[:success] = "you delete your account"
+        redirect_to  register_users_path 
     end 
 
     def deleteAccount
+        #find user who want to delete their account
+        @user = User.find_by(id: params[:id])
     end 
 
     def description
@@ -190,6 +194,7 @@ class UsersController < ApplicationController
     end
 
     def specificeServive
+        
     end 
 
 

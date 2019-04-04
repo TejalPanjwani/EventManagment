@@ -110,8 +110,24 @@
   font-weight: 600;
   text-transform: uppercase;
   padding: 10px;
-  padding-left: 10px;
-      
+  padding-left: 10px;     
+}
+
+.card-list
+{
+  margin-top: 30px;
+  padding: 30px;
+  background-color: #009688;
+  border-radius: 5px;
+}
+.card-list:hover 
+{
+  box-shadow: 0 12px 24px 0 rgba(0,0,0,0.6);
+  transition: 0.4s;
+}
+.card-list a
+{
+  color: #fff;
 }
 
 .jumbotron h1 

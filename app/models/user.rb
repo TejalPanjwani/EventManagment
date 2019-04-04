@@ -2,6 +2,7 @@ class User < ApplicationRecord
     has_many :services, dependent: :destroy
     has_many :requestforsevices, dependent: :destroy
     has_many :notices, dependent: :destroy
+    has_many :books, dependent: :destroy
     enum role: [:user,:serviceprovider,:admin]
 
     validates :password, confirmation: { case_sensitive: true }

@@ -1,1 +1,18 @@
-<h1> delete account </h1>
+<div style="padding-top: 150px;">
+    <div class="card col-sm-8 col-sm-offset-2" >
+        <div class="card-body"> 
+        <div class="container">
+
+            <div style="padding-right: 200px;" >
+                <h1> DELETE ACCOUNT </h1>
+            </div>
+            <h2> hey, <%= @user.name %> </h2>
+            <h4> Deleting your account will permanently deactivate your
+            profile and delete all of your services. This cannot be undone. </h4>
+
+            <h4> Are you sure you want to delete your account? </h4>
+            <%= link_to 'Delete my account' ,user_path(current_user.id), method: :delete, data: { confirm: 'Are you sure?' }, :class=>"btn btn-danger" %>
+            <br><br><br>
+        </div>
+    </div>
+</div>

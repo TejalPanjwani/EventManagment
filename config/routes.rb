@@ -38,6 +38,8 @@ Rails.application.routes.draw do
       get 'searchpage' => 'users#searchpage'
       get 'specificeServive' => 'users#specificeServive'
       get 'deleteAccount/:id' => 'users#deleteAccount', as: 'deleteAccount'
+
+    
     end
   end
 

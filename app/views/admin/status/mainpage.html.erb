@@ -1,13 +1,42 @@
+<div class="row">
 
-<%= link_to "Request", admin_requestpage_path%>
-<br>
-<%= link_to "Users",  admin_userspage_path %>
-<br>
-<%= link_to "ServiceProviders",  admin_serviceproviderpage_path  %>
-<br>
-<%= link_to "Servicestypes", admin_servicetypes_path %>
-<br>
-<%= link_to "cities", admin_citypage_path %>
-<br>
-<%= link_to "Services", admin_servicepage_path %>
+    <div class="col-sm-4 col-sm-offset-1 card-list">
+        <div class="col-sm-4 col-sm-offset-4">
+            <h3><%= link_to "Request", admin_requestpage_path%></h3>
+        </div>
+    </div>
+    <div class="col-sm-1" >
+    </div>
+    <div class="col-sm-4 card-list">
+        <div class="col-sm-4 col-sm-offset-4">
+            <h3><%= link_to "Users",  admin_userspage_path %></h3>
+        </div>
+    </div>
+    
+    <div class="col-sm-4 col-sm-offset-1 card-list">
+        <div class="col-sm-4 col-sm-offset-4">
+            <h3><%= link_to "ServiceProviders",  admin_serviceproviderpage_path  %></h3>
+        </div>
+    </div>
+    <div class="col-sm-1" >
+    </div>
+    <div class="col-sm-4 card-list">
+        <div class="col-sm-4 col-sm-offset-4">
+            <h3><%= link_to "Servicestypes", admin_servicetypes_path %></h3>
+        </div>   
+    </div>
 
+    <div class="col-sm-4 col-sm-offset-1 card-list">
+        <div class="col-sm-4 col-sm-offset-4">
+            <h3><%= link_to "Cities", admin_citypage_path %></h3>
+        </div>
+    </div>
+
+    <div class="col-sm-1" >
+    </div>
+    <div class="col-sm-4 card-list">
+        <div class="col-sm-4 col-sm-offset-4">
+            <h3><%= link_to "Services", admin_servicepage_path %></h3>
+        </div>   
+    </div>
+</div>

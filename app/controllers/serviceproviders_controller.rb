@@ -70,7 +70,6 @@ class ServiceprovidersController < ApplicationController
         @city = City.find(@service.city_id)
         @title = Title.find(@service.title_id)
         @books = Book.where("service_id=?", @service.id)
-        binding.pry
     end
 
     def editservice
@@ -119,7 +118,7 @@ class ServiceprovidersController < ApplicationController
     end
 
     def user_params
-        params.require(:user).permit(:name,:email)
+        params.require(:user).permit(:name,:email,:typeofhuman)
     end
 
     def edit_service_params
